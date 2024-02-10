@@ -29,9 +29,9 @@ For all the questions given below, create `assignment_q<question-number>_subject
     y = 3*x1**2 + 2*x2**2 + 9
     ```
 
-    - Implement gradient descent. Find the average number of steps it takes to converge to the optimal value for both datasets. Visualize the convergence process. Which dataset takes a larger number of steps to converge, and why?
-   - Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process.
-   - Compare the average number of steps taken with gradient descent with momentum to that of vanilla gradient descent.
+    - Implement gradient descent. Find the average number of steps it takes to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Visualize the convergence process for 15 steps. Choose $\epsilon = 0.001$ for convergence criteria. Which dataset takes a larger number of steps to converge, and why?
+   - Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process for 15 steps.
+   - Compare the average number of steps taken with gradient descent with momentum to that of vanilla gradient descent to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Choose $\epsilon = 0.001$. Write down your observations. 
      
 2. Refer to the [instructor's notebook](https://nipunbatra.github.io/ml-teaching/notebooks/dummy-variables-multi-colinearity.html) on multi-colinearity. Use np.linalg.solve instead of np.linalg.inv for the same problem. Compare and contrast their usage, which one is better and why? **[1 Mark]**
 
