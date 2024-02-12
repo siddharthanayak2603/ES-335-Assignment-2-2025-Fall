@@ -1,6 +1,6 @@
 # Assignment 2
 
-Total marks: 
+Total marks: 11 (This assignment total to 22, we will overall scale by a factor of 0.5)
 
 For all the questions given below, create `assignment_q<question-number>_subjective_answers.md` and write your observations.
 
