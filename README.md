@@ -41,27 +41,31 @@ For all the questions given below, create `assignment_q<question-number>_subject
 3. Referring to the same [notebook](https://nipunbatra.github.io/ml-teaching/notebooks/dummy-variables-multi-colinearity.html), explain why Sklearn's linear regression implementation is robust against multicollinearity. Dive deep into Sklearn's code and explain in depth the methodology used in sklearn's implementation. **[1 Mark]**
    
 4. Begin by exploring the [instructor's notebook](https://github.com/nipunbatra/ml-teaching/blob/master/notebooks/siren.ipynb) that introduces the application of Random Fourier Features (RFF) for image reconstruction. Demonstrate the following applications using the cropped image from the notebook:
-    - Superresolution: perform superresolution on the image shown in notebook to enhance its resolution by factor 2. **[2 Marks]**
-    - Completing Image with Random Missing Data: Apply RFF to complete the image with 10%, 20%, and so on up to 90% of its data missing randomly. Randomly remove portions of the data, train the model on the remaining data, and predict on the entire image. Display the reconstructed images for each missing data percentage. **[1 Mark]**
-    - Image Inpainting: Take out a rectangular patch from the image. Utilize RFF to train a linear model using the remaining image data. Reconstruct the entire image using the trained model and highlight the effectiveness of the inpainting process. **[1 Mark]**
+    - Superresolution: perform superresolution on the image shown in notebook to enhance its resolution by factor 2. Show a qualitative comparison of original and reconstructed image. **[2 Marks]**
+    - The above only helps us with a qualitative comparison. Let us now do a quantitative comparison. First, skim read this article: https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Super-Resolution **[2 Marks]**
+        - Start with a 400x400 image (ground truth high resolution).
+        - Resize it to a 200x200 image (input image)
+        - Use RFF + Linear regression to increase the resolution to 400x400 (predicted high resolution image)
+        - Compute the following metrics:
+            - RMSE on predicted v/s ground truth high resolution image
+            - Peak SNR
+    - Completing Image with Random Missing Data: Apply RFF to complete the image with 10%, 20%, and so on up to 90% of its data missing randomly. Randomly remove portions of the data, train the model on the remaining data, and predict on the entire image. Display the reconstructed images for each missing data percentage and show the metrics calculated above. What do you conclude?. **[2 Marks]**
 
-5. Use the [instructor's notebook](https://github.com/nipunbatra/ml-teaching/blob/master/notebooks/movie-recommendation-knn-mf.ipynb) on matrix factorisation, and solve the following questions.
-    - Use the above image from Q4 and complete the rectangular missing        patch for three cases. Vary the patch location as follows.
+5. Use the [instructor's notebook](https://github.com/nipunbatra/ml-teaching/blob/master/notebooks/movie-recommendation-knn-mf.ipynb) on matrix factorisation, and solve the following questions. 
+    - Use the above image from Q4 and complete the rectangular missing patch for three cases, i.e. a rectangular block of 30X30 is assumed missing from the image. Choose rank `r` yourself. Vary the patch location as follows. **[3 Marks]**
         1. an area with mainly a single color.
         2. an area with 2-3 different colors.
         3. an area with at least 5 different colors.
     
-        Perform Gradient Descent for 10 epochs, plot the selected patches, original and reconstructed images, and write your observations.
+        Perform Gradient Descent till convergence, plot the selected patches, original and reconstructed images, compute the metrics mentioned in Q4 and write your observations. Obtain the reconstruction using RFF + Linear regression and compare the two.
 
-    - Vary patch size (NxN) for ```N = [20, 40, 60, 80, 100]``` and peform Gradient Descent for 10 epochs. Demonstrate the variation in reconstruction quality by making appropriate plots.
+    - Vary patch size (NxN) for ```N = [20, 40, 60, 80, 100]``` and peform Gradient Descent till convergence. Demonstrate the variation in reconstruction quality by making appropriate plots and metrics. **[3 Marks]**
     
         Reconstruct the same patches using RFF. Compare the results and write your observations.
+            
+    - Write a function using this [reference](https://pytorch.org/docs/stable/generated/torch.linalg.lstsq.html) and use alternating least squares instead of gradient descent to repeat Part 1, 2 of Q5, using your written function. **[3 Marks]**
     
-    - Vary the number of epochs ```n = [1, 5, 10, 20, 50]``` and plot the reconstructed images as the number of epochs increase. 
-        
-    - Write a function using this [reference](https://pytorch.org/docs/stable/generated/torch.linalg.lstsq.html) and use alternating least squares instead of gradient descent to repeat Part 1, 2 and 3 of Q5, using your written function.
-    
-    - Consider a patch of size (100x100) with at least 5 colors. Vary the low-rank value as ```r = [5, 10, 20, 50, 100]``` . Use Gradient Descent and plot the reconstructed images to demonstrate difference in reconstruction quality. Write your observations.
+    - Consider a patch of size (100x100) with at least 5 colors. Vary the low-rank value as ```r = [5, 10, 20, 50, 100]``` . Use Gradient Descent and plot the reconstructed images to demonstrate difference in reconstruction quality. Write your observations. **[3 Marks]**
 
 6. Create a data set as follows:
 
