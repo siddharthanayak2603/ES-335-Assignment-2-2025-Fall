@@ -11,31 +11,34 @@ For all the questions given below, create `assignment_q<question-number>_subject
 
     Dataset 1:
     ```python
+    num_samples = 40
     np.random.seed(45) 
         
     # Generate data
-    x1 = np.random.uniform(-50, 50, num_samples)
-    x2 = np.random.uniform(-50, 50, num_samples)
-    y = 100*x1**2 + 2*x2**2 + 9
+    x1 = np.random.uniform(-20, 20, num_samples)
+    f_x = 100*x1 + 1
+    eps = np.random.randn(num_samples)
+    y = f_x + eps
     ```
     
     Dataset 2: 
     ```python
-    np.random.seed(45) 
+    np.random.seed(45)
+    num_samples = 40
         
     # Generate data
-    x1 = np.random.uniform(-10, 10, num_samples)
-    x2 = np.random.uniform(-10, 10, num_samples)
-    y = 3*x1**2 + 2*x2**2 + 9
+    x1 = np.random.uniform(-1, 1, num_samples)
+    f_x = 3*x1 + 4
+    eps = np.random.randn(num_samples)
+    y = f_x + eps
     ```
 
-    - Implement gradient descent. Find the average number of steps it takes to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Visualize the convergence process for 15 steps. Choose $\epsilon = 0.001$ for convergence criteria. Which dataset takes a larger number of steps to converge, and why?
-   - Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process for 15 steps.
-   - Compare the average number of steps taken with gradient descent with momentum to that of vanilla gradient descent to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Choose $\epsilon = 0.001$. Write down your observations. 
+    - Implement full-batch and stochastic gradient descent. Find the average number of steps it takes to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Visualize the convergence process for 15 epochs. Choose $\epsilon = 0.001$ for convergence criteria. Which dataset and optimizer takes a larger number of epochs to converge, and why? Show the contour plots for different epochs (or show an animation/GIF) for visualisation of optimisation process. Also, make a plot for Loss v/s epochs. **[3 marks]**
+   - Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process for 15 steps. Compare the average number of steps taken with gradient descent (both variants -- full batch and stochastic) with momentum to that of vanilla gradient descent to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Choose $\epsilon = 0.001$. Write down your observations. Show the contour plots for different epochs for momentum implementation. Specifically, show all the vectors: gradient, current value of theta, momentum, etc. **[3 marks]**
      
-2. Refer to the [instructor's notebook](https://nipunbatra.github.io/ml-teaching/notebooks/dummy-variables-multi-colinearity.html) on multi-colinearity. Use np.linalg.solve instead of np.linalg.inv for the same problem. Compare and contrast their usage, which one is better and why? **[1 Mark]**
+2. Refer to the [instructor's notebook](https://nipunbatra.github.io/ml-teaching/notebooks/dummy-variables-multi-colinearity.html) on multi-colinearity. Use `np.linalg.solve` instead of `np.linalg.inv` for the same problem. Compare and contrast their usage, which one is better and why? Hint: matrix conditioning. Can you find out an example where one works and the other fails? **[2 Marks]**
 
-3. Referring to the same [notebook](https://nipunbatra.github.io/ml-teaching/notebooks/dummy-variables-multi-colinearity.html), explain why Sklearn's linear regression implementation is robust against multicollinearity. Dive deep into Sklearn's code and explain in depth the methodology used. **[1 Mark]**
+3. Referring to the same [notebook](https://nipunbatra.github.io/ml-teaching/notebooks/dummy-variables-multi-colinearity.html), explain why Sklearn's linear regression implementation is robust against multicollinearity. Dive deep into Sklearn's code and explain in depth the methodology used in sklearn's implementation. **[1 Mark]**
    
 4. Begin by exploring the [instructor's notebook](https://github.com/nipunbatra/ml-teaching/blob/master/notebooks/siren.ipynb) that introduces the application of Random Fourier Features (RFF) for image reconstruction. Demonstrate the following applications using the cropped image from the notebook:
     - Superresolution: perform superresolution on the image shown in notebook to enhance its resolution by factor 2. **[2 Marks]**
