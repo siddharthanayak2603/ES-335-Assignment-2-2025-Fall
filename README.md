@@ -79,22 +79,12 @@ For all the questions given below, create `assignment_q<question-number>_subject
 
 <br>
 
-<div style="display: flex; align-items: center;">
-  <div style="margin-right: 20px; text-align: center;">
-    <img src="sample_images/1colour.jpg" alt="Image 1" width="250"/>
-    <br>
-    <em>A sample Image for Case 1</em>
-  </div>
-  <div style="margin-right: 20px; text-align: center;">
-    <img src="sample_images/2-3_colours.jpg" alt="Image 2" width="267"/>
-    <br>
-    <em>A sample Image for Case 2</em>
-  </div>
-  <div style="text-align: center;">
-    <img src="sample_images/multiple_colours.jpg" alt="Image 3" width="265"/>
-    <br>
-    <em>A sample Image for Case 3</em>
-  </div>
+Here is a reference set of patches chosen for each of the 3 cases from left to right. 
+
+<div style="display: flex;">
+  <img src="sample_images/1colour.jpg" alt="Image 1" width="250"/>
+  <img src="sample_images/2-3_colours.jpg" alt="Image 2" width="270"/>
+  <img src="sample_images/multiple_colours.jpg" alt="Image 3" width="265"/>
 </div>
 
 <br>
