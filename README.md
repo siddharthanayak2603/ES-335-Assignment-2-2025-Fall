@@ -77,6 +77,27 @@ For all the questions given below, create `assignment_q<question-number>_subject
 
      Vary the low-rank value as ```r = [5, 10, 25, 50]```  for each of the cases. Use Gradient Descent and plot the reconstructed patches over the original image (retaining all pixel values outside the patch, and using your learnt compressed matrix in place of the patch) to demonstrate difference in reconstruction quality. Write your observations. **[1.5 Marks]**
 
+<br>
+
+<div style="display: flex; align-items: center;">
+  <div style="margin-right: 20px; text-align: center;">
+    <img src="sample_images/1colour.jpg" alt="Image 1" width="250"/>
+    <br>
+    <em>A sample Image for Case 1</em>
+  </div>
+  <div style="margin-right: 20px; text-align: center;">
+    <img src="sample_images/2-3_colours.jpg" alt="Image 2" width="267"/>
+    <br>
+    <em>A sample Image for Case 2</em>
+  </div>
+  <div style="text-align: center;">
+    <img src="sample_images/multiple_colours.jpg" alt="Image 3" width="265"/>
+    <br>
+    <em>A sample Image for Case 3</em>
+  </div>
+</div>
+
+<br>
 
 6. UCI-HAR dataset. Compare DT, RF and Linear regression (yes, regression). For linear regression: each class label as an integer value. Say, 1: Sitting, 2:..., and so on. Use features extracted (from flattened out Linear Acceleration) using the TSFEL library. Compare the performance of these models. Is the usage of linear regression for classification justified? Why or why not? **[2 Marks]**
 
