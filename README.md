@@ -34,12 +34,12 @@ eps = np.random.randn(num_samples)
 y = f_x + eps
 ```
 
--  **[2 marks]** Implement full-batch gradient descent and stochastic gradient descent for linear regression using the given datasets. Define the convergence criterion as reaching an $\epsilon$-neighborhood of the minimizer, with $\epsilon = 0.001$. Here, this means that your estimated parameter vector $\theta_t$ is considered to have *converged* once it is within a distance of $\epsilon$ from the true minimizer $\theta^*$. Formally:  $$\|\theta_t - \theta^*\| < \epsilon$$ For each method and dataset, determine the **average number of steps** required to satisfy this convergence criterion. Visualize the convergence process over 15 epochs. Provide visualizations:
+-  **[2 marks]** Implement full-batch gradient descent and stochastic gradient descent for linear regression using the given datasets. Define the convergence criterion as reaching an $\epsilon$-neighborhood of the minimizer, with $\epsilon = 0.001$. Here, this means that your estimated parameter vector $\theta_t$ is considered to have converged once it is within a distance of $\epsilon$ from the true minimizer $\theta^\*$. Formally: $\|\theta_t - \theta^\*\| < \epsilon$ .For each method and dataset, determine the average number of steps required to satisfy this convergence criterion. Visualize the convergence process over 15 epochs.Provide visualizations:
     - Contour plots of the optimization process at different epochs (or an animation/GIF).
     - A plot of loss versus epochs for each method and dataset.
 
 
-- **[2 marks]** Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process for 15 steps. Compare the average number of steps taken with gradient descent (both variants -- full batch and stochastic) with momentum to that of vanilla gradient descent to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Choose $\epsilon = 0.001$. Write down your observations. Show the contour plots for different epochs for momentum implementation. Specifically, show all the vectors: gradient, current value of theta, momentum, etc. 
+- **[2 marks]** Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process for 15 steps. Compare the average number of steps taken with gradient descent (both variants full batch and stochastic) with momentum to that of vanilla gradient descent to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Choose $\epsilon = 0.001$. Write down your observations. Show the contour plots for different epochs for momentum implementation. Specifically, show all the vectors: gradient, current value of theta, momentum, etc. 
 
 
 ### 2. Effect Of Feature Scaling on Optimisation [2 Marks]
@@ -57,7 +57,7 @@ y = f_x + eps
 
 - **[1 marks]** Using the above dataset, implement full-batch gradient descent for linear regression on the dataset above without any feature scaling. Define the convergence criterion as reaching an epsilon-neighborhood of the empirical least squares minimizer θ*, with ε = 0.001 ( $\|\theta_t - \theta^*\| < \epsilon$ ). Determine the number of iterations required to satisfy this convergence criterion. Plot mse loss versus iterations plot.
 
-- **[1 marks]** Apply z-score normalization to the feature:  $$ x_{\text{scaled}} = \frac{x - \mu_x}{\sigma_x} $$ Run full-batch gradient descent on the scaled dataset with the same convergence criterion $(\epsilon = 0.001)$. Determine the number of iterations required for convergence. Plot mse loss versus iterations plot.
+- **[1 marks]** Apply z-score normalization to the feature: $x_{\text{scaled}} = \frac{x - \mu_x}{\sigma_x}$ Run full-batch gradient descent on the scaled dataset with the same convergence criterion $(\epsilon = 0.001)$. Determine the number of iterations required for convergence. Plot mse loss versus iterations plot.
 
 ### 3. Working with Autoregressive Modeling [2 Marks]
 
@@ -111,10 +111,7 @@ The goal is to simulate and visualize the spread of an epidemic using a linear s
 * Recovered (R): Individuals who have recovered and are now immune.
 * Deceased (D): Individuals who have died from the disease.
 
-The state of the population at any given time t (in days) is represented by a 4-vector x_t, which gives the proportion of the population in each state:
-$$ x_t = \begin{bmatrix} S_t \ I_t \ R_t \ D_t \end{bmatrix} $$
-
-The progression of the epidemic from one day to the next is governed by the following daily transition rules:
+The state of the population at any given time t (in days) is represented by a 4-vector $x_t$, which gives the proportion of the population in each state: $$x_t = [S_t  I_t  R_t  D_t]$$ . The progression of the epidemic from one day to the next is governed by the following daily transition rules:
 
 Among the susceptible population:
 - 5% acquire the disease (become Infected).
@@ -129,7 +126,7 @@ Among the infected population:
 100% of immune (Recovered) and Deceased people remain in their respective states.
 
 This process can be modeled as a linear system:
-$$ x_{t+1} = A x_t $$
+$$x_{t+1} = A x_t$$
 where A is the transition matrix that describes the daily changes.
 
 - **[1 Marks]** Based on the transition rules provided above, manually determine the 4x4 transition matrix A for the linear system $x_{t+1} = A x_t$.
