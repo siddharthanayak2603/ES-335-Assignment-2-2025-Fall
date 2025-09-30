@@ -7,7 +7,7 @@ For all the questions given below, create `assignment_q<question-number>_subject
 ## Questions
 ## Assignment Question
 
-### 1. Understanding Gradient Descent and Momentum [4 Marks]
+### 1. Understanding Gradient Descent and Momentum [3 Marks]
 
 Generate the following two functions:
 Dataset 1:
@@ -39,7 +39,7 @@ y = f_x + eps
     - A plot of loss versus epochs for each method and dataset.
 
 
-- **[2 marks]** Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process for 15 steps. Compare the average number of steps taken with gradient descent (both variants full batch and stochastic) with momentum to that of vanilla gradient descent to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Choose $\epsilon = 0.001$. Write down your observations. Show the contour plots for different epochs for momentum implementation. Specifically, show all the vectors: gradient, current value of theta, momentum, etc. 
+- **[1 marks]** Explore the article [here](https://machinelearningmastery.com/gradient-descent-with-momentum-from-scratch/#:~:text=Momentum%20is%20an%20extension%20to,spots%20of%20the%20search%20space.) on gradient descent with momentum. Implement gradient descent with momentum for the above two datasets. Visualize the convergence process for 15 steps. Compare the average number of steps taken with gradient descent (both variants full batch and stochastic) with momentum to that of vanilla gradient descent to converge to an $\epsilon$-neighborhood of the minimizer for both datasets. Choose $\epsilon = 0.001$. Write down your observations. Show the contour plots for different epochs for momentum implementation. Specifically, show all the vectors: gradient, current value of theta, momentum, etc. 
 
 
 ### 2. Effect Of Feature Scaling on Optimisation [2 Marks]
@@ -65,7 +65,7 @@ y = f_x + eps
 
 
 
-### 4. Implementing Matrix Factorization [9 Marks]
+### 4. Implementing Matrix Factorization [6 Marks]
 
 Use the [instructor's notebook](https://github.com/nipunbatra/ml-teaching/blob/master/notebooks/movie-recommendation-knn-mf.ipynb) on matrix factorisation, and solve the following questions.
 
@@ -79,12 +79,11 @@ Use the [instructor's notebook](https://github.com/nipunbatra/ml-teaching/blob/m
     * RMSE on predicted v/s ground truth high resolution image
     * Peak SNR
 
-- **[2 Marks]** Vary region size (NxN) for ```N = [20, 40, 60, 80]``` and perform Gradient Descent till convergence. Again, consider the two cases for your region as mentioned in Part (a). Demonstrate the variation in reconstruction quality by making appropriate plots and Computing metrics. 
     
 - **[2 Marks]** Write a function using this [reference](https://pytorch.org/docs/stable/generated/torch.linalg.lstsq.html) and use alternating least squares instead of gradient descent to repeat Part 1, 2 of Image reconstruction problem using your written function. 
 
 **b) Data Compression-** Here, ground truth pixel values are not missing- you have access to them. You want to explore the use of matrix factorisation in order to store them more efficiently.
-- **[3 Marks]** Consider an image patch of size (NxN) where N=50. We are trying to compress this patch (matrix) into two matrices, by using low-rank matrix factorization. Consider the following three cases-
+- **[2 Marks]** Consider an image patch of size (NxN) where N=50. We are trying to compress this patch (matrix) into two matrices, by using low-rank matrix factorization. Consider the following three cases-
     1. a patch with mainly a single color.
     2. a patch with 2-3 different colors.
     3. a patch with at least 5 different colors.
@@ -99,41 +98,28 @@ Here is a reference set of patches chosen for each of the 3 cases from left to r
 <img src="sample_images/multiple_colours.jpg" alt="Image 3" width="265"/>
 </div>
 
+### 5. Logistic Regression in PyTorch [2 marks]
 
-### 5. Simulating Epidemic Modeling [2 Marks]
+Implement logistic regression from scratch in PyTorch with an interface similar to scikit-learn’s `LogisticRegression`. Your implementation should support the following:
 
-The goal is to simulate and visualize the spread of an epidemic using a linear system based on the SIRD (Susceptible, Infected, Recovered, Deceased) model.
+```python
+class LogisticTorch:
+    def __init__(self, lr=0.01, epochs=1000):
+        pass
 
-**Background :**
-* We will model the proportion of a population distributed across four states:
-* Susceptible (S): Individuals who can acquire the disease the next day.
-* Infected (I): Individuals who currently have the disease.
-* Recovered (R): Individuals who have recovered and are now immune.
-* Deceased (D): Individuals who have died from the disease.
+    def fit(self, X, y):
+        pass
 
-The state of the population at any given time t (in days) is represented by a 4-vector $x_t$, which gives the proportion of the population in each state: $$x_t = [S_t  I_t  R_t  D_t]$$ . The progression of the epidemic from one day to the next is governed by the following daily transition rules:
+    def predict(self, X):
+        pass
 
-Among the susceptible population:
-- 5% acquire the disease (become Infected).
-- 95% remain Susceptible.
+    def predict_proba(self, X):
+        pass
+```
+* Train on a synthetic dataset (e.g., sklearn.datasets.make_classification).
+* Compare with sklearn.linear_model.LogisticRegression.
+* Plot decision boundary.
+* Report accuracy and loss curve.
 
-Among the infected population:
-- 1% dies (become Deceased).
-- 10% recover with immunity (become Recovered).
-- 4% recover without immunity (become Susceptible).
-- 85% remain Infected.
 
-100% of immune (Recovered) and Deceased people remain in their respective states.
 
-This process can be modeled as a linear system:
-$$x_{t+1} = A x_t$$
-where A is the transition matrix that describes the daily changes.
-
-- **[1 Marks]** Based on the transition rules provided above, manually determine the 4x4 transition matrix A for the linear system $x_{t+1} = A x_t$.
-- **[1 Marks]** Start with an initial state vector of $x_1 = [1,0,0,0]^T$. This represents a scenario where, on day 1, the entire population is susceptible. Iteratively calculate the state vector for each subsequent day (from t=2 to t=200). Store the results for each of the four population groups for every day. Create a single plot that visualizes the simulation results. The x-axis should represent Time t (in days), from 1 to 200. The y-axis should represent the Proportion of the population, $x_t$, from 0 to 1. Plot the trends for all four groups (Susceptible, Infected, Recovered, and Deceased) on the same graph.
-
-<!-- ![imgsrc](sample_images/Epidemic_model.png) -->
-
-<div style="display: flex; justify-content: center; align-items: center;">
-    <img src="sample_images/Epidemic_model.png" width="80%"/>
-</div>
