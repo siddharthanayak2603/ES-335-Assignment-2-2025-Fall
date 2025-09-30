@@ -5,7 +5,6 @@ Total marks: 15 (This assignment total to 15, we will overall scale by a factor 
 For all the questions given below, create `assignment_q<question-number>_subjective_answers.md` and write your observations.
 
 ## Questions
-## Assignment Question
 
 ### 1. Understanding Gradient Descent and Momentum [3 Marks]
 
