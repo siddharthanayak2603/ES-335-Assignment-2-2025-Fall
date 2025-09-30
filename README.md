@@ -1,6 +1,6 @@
 # Assignment 2
 
-Total marks: XX (This assignment total to XX, we will overall scale by a factor of XX)
+Total marks: 15 (This assignment total to 15, we will overall scale by a factor of 1)
 
 For all the questions given below, create `assignment_q<question-number>_subjective_answers.md` and write your observations.
 
@@ -116,10 +116,20 @@ class LogisticTorch:
     def predict_proba(self, X):
         pass
 ```
-* Train on a synthetic dataset (e.g., sklearn.datasets.make_classification).
-* Compare with sklearn.linear_model.LogisticRegression.
-* Plot decision boundary.
-* Report accuracy and loss curve.
+
+Use the following dataset:
+
+```python
+from sklearn.datasets import make_moons
+
+X, y = make_moons(n_samples=200, noise=0.2, random_state=42)
+```
+
+* Train your ```LogisticTorch``` classifier on this dataset.
+* Compare the performance with ```sklearn.linear_model.LogisticRegression```.
+* Plot the decision boundary for both models.
+* Plot the loss curve during training.
+* Report accuracy on the dataset for both models.
 
 
 
